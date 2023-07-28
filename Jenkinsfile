@@ -4,7 +4,7 @@ pipeline {
 		mavenHome = tool 'jenkins-maven'
 	}
 	tools {
-		jdk 'java-11'
+		jdk 'java-17'
 	}
 	stages {
 		stage('Build'){
@@ -19,7 +19,7 @@ pipeline {
 		}
 		stage('Deploy') {
 			steps {
-			    bat 'echo "deploy coy"'
+			    bat "mvn jar:jar deploy:deploy"
 			}
 		}
 	}
